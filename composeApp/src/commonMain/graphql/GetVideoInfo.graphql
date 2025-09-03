@@ -1,0 +1,15 @@
+mutation fetchVideoInfo($url: String!) {
+  fetchVideoInfo(url: $url) {
+    ...VideoInfoFragment
+  }
+}
+
+fragment FormatDetailFragment on FormatDetails {
+  acodec
+  ext
+  format
+  formatId
+  resolution
+  url
+  vcodec
+}

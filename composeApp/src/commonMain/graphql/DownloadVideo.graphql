@@ -1,0 +1,7 @@
+mutation DownloadVideo($videoDownloadRequest: VideoDownloadRequestInput!) {
+  downloadVideo(videoDownloadRequest: $videoDownloadRequest)
+}
+
+mutation DownloadVideoWithInfo($videoInfo: VideoInfoInput!) {
+  downloadVideoWithInfo(videoInfo: $videoInfo)
+}

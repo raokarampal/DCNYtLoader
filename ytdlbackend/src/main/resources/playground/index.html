@@ -1,0 +1,21 @@
+<div style="width: 100%; height: 100%;" id='embedded-sandbox'></div>
+<script src="https://embeddable-sandbox.cdn.apollographql.com/_latest/embeddable-sandbox.umd.production.min.js"></script>
+<script>
+    // Get the current hostname (e.g., "localhost:8080", "learncompose.com")
+    const currentHost = window.location.host;
+    // Get the current protocol (e.g., "http:", "https:")
+    const currentProtocol = window.location.protocol;
+
+    // Construct the base URL
+    const baseUrl = `${currentProtocol}//${currentHost}`;
+
+    // Define your GraphQL path
+    const graphqlPath = '/graphql'; // This is the path to your GraphQL endpoint
+
+    new window.EmbeddedSandbox({
+      target: '#embedded-sandbox',
+      // Dynamically set the initialEndpoint
+      initialEndpoint: `${baseUrl}${graphqlPath}`,
+      includeCookies: false, // Or true, depending on your needs
+    });
+</script>

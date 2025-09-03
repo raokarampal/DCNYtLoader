@@ -1,0 +1,96 @@
+query GetDownloadHistory {
+    getDownloadHistory {
+        ...DownloadHistoryListFragment
+    }
+}
+
+fragment DownloadHistoryListFragment on DownloadHistoryList {
+    downloadFolders {
+        fileDetails {
+            files
+            name
+        }
+        folderName
+    }
+    downloadHistory {
+        ...DownloadHistoryFragment
+    }
+}
+
+fragment DownloadHistoryFragment on DownloadHistory {
+    category
+    channelName
+    desc
+    downloadCategory
+    downloadPath
+    downloadUpdates {
+        ...DownloadUpdateFragment
+    }
+    selectedFormats {
+        ...FormatDetailFragment
+    }
+    status
+    thumbnail
+    title
+    videoID
+    toVideoInfo {
+     ...VideoInfoFragment
+    }
+}
+
+fragment VideoInfoFragment on VideoInfo {
+    category
+    channelName
+    defaultFormatAudio {
+        ...FormatDetailFragment
+    }
+    defaultFormatVideo {
+        ...FormatDetailFragment
+    }
+    desc
+    downloadCategory
+    downloadPath
+    formats {
+        ...FormatDetailFragment
+    }
+    status
+    thumbnail
+    title
+    videoID
+    toDownloadHistory {
+        category
+        channelName
+        desc
+        downloadCategory
+        downloadPath
+        status
+        thumbnail
+        title
+        videoID
+    }
+}
+
+fragment DownloadUpdateFragment on DownloadUpdates{
+    id
+    msg{
+        ...DownloadInfoFragment
+        ...OtherInfoFragment
+    }
+    progress
+}
+
+fragment DownloadInfoFragment on DownloadInfo {
+    eta
+    percentage
+    speed
+    totalSize
+}
+
+fragment OtherInfoFragment on OtherInfo {
+    action
+    fileName
+    filePath
+    status
+    message
+    pc
+}

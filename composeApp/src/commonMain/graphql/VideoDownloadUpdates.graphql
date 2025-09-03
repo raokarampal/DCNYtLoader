@@ -1,0 +1,5 @@
+subscription VideoDownloadUpdates($videoId: String) {
+  videoDownloadUpdates(videoId: $videoId) {
+   ...DownloadUpdateFragment
+  }
+}
